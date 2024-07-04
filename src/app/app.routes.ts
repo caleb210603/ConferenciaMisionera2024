@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'list', pathMatch: 'full' },
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     {
         path: 'list',
         loadChildren: () =>
