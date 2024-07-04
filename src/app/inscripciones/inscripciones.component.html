@@ -1,0 +1,83 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet"
+  />
+</head>
+
+<h3 class="title">Conferencia Misionera 2024</h3>
+
+<div>
+  <input
+    type="text"
+    class="search-bar"
+    placeholder="Buscar..."
+    [(ngModel)]="searchTerm"
+    (input)="filterSeasons()"
+  />
+</div>
+
+<div class="filtro-categorias">
+  <mat-chip-listbox #chipList>
+    <mat-chip-option
+      style="padding: 0.1rem 0.3rem; margin-left: 1rem"
+      class="chip-selected"
+      *ngFor="let categoria of categorias"
+      [selected]="categoria === 'All'"
+      (click)="filtrarPorCategoria(categoria)"
+    >
+      {{ categoria }}
+    </mat-chip-option>
+  </mat-chip-listbox>
+</div>
+
+<div class="cards-container">
+  <div *ngFor="let user of usersFilter" class="user-card">
+    <mat-card class="card-container">
+      <mat-card-header>
+        <mat-card-title class="user-name">{{ user.nombre }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="user-zone">{{ user.zona }}</p>
+        <hr class="separator" />
+        <div class="user-info">
+          <div class="course-feature" style="margin-bottom: 0.4rem">
+            <i class="bx bx-user icon"></i>
+            {{ user.edad }} años
+          </div>
+          <div class="course-feature" style="margin-bottom: 0.4rem">
+            <i class="bx bx-adjust icon"></i>
+            {{ user.sexo }}
+          </div>
+        </div>
+        <div class="slide-toggles">
+          <label class="slide-toggle">
+            <input type="checkbox" id="toggleJueves" [(ngModel)]="user.day1" />
+            <span class="slider"></span>
+            <span class="toggle-text">Jueves</span>
+          </label>
+          <label class="slide-toggle">
+            <input type="checkbox" id="toggleJueves" [(ngModel)]="user.day2" />
+            <span class="slider"></span>
+            <span class="toggle-text">Viernes</span>
+          </label>
+          <label class="slide-toggle">
+            <input type="checkbox" id="toggleJueves" [(ngModel)]="user.day3" />
+            <span class="slider"></span>
+            <span class="toggle-text">Sabado</span>
+          </label>
+        </div>
+        <button class="button-detail" (click)="guardarCambios(user)">
+          Guardar
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

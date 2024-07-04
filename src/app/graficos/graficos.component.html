@@ -1,0 +1,26 @@
+<h5 class="title">Conferencia Misionera 2024</h5>
+<div class="container-wrapper">
+  <div class="container">
+    <span class="chart-title">Estadisticas por Zona</span>
+    <canvas
+      baseChart
+      [datasets]="chartData.datasets"
+      [labels]="chartData.labels"
+      [type]="chartType"
+      [options]="chartOptions"
+      class="graph"
+    ></canvas>
+  </div>
+
+  <div class="container">
+    <span class="chart-title">Estadisticas por día</span>
+    <canvas
+      baseChart
+      [datasets]="chartData2.datasets"
+      [labels]="chartData2.labels"
+      [type]="chartType2"
+      [options]="chartOptions2"
+      class="graph"
+    ></canvas>
+  </div>
+</div>
